@@ -11,13 +11,15 @@ NEI <- readRDS("summarySCC_PM25.rds")
 # subset emission data for Baltimore city.
 baltimoreNEI <- subset(NEI, fips == "24510")
 
-# Create PNG graphic device
-png(filename = "plot3.png", width = 480, height = 480)
-
 # Plot pm 2.5 emmission by source type in Baltimore city between 1999-2008 using ggplot2 system.
  
-qplot(year, Emissions, data = baltimoreNEI, group = type, color = type, 
-		geom = c("point", "line"), 
-		ylab = expression("Total Baltimore PM"[2.5], Emissions),
-		xlab = "Year", 
-		main = "Total Emissions in Baltimore by Type of Pollutant")
+g <- ggplot(aes(factor(year), Emissions, fill = type), data = baltimoreNEI)
+g + geom_bar(stat = "identity")+
+facet_grid(.~type)+
+theme_bw()+
+guides(fill = FALSE)+
+labs(x = "Year", y = expression("Total PM"[2.5]*" Emission (Tons)")) + 
+labs(title = expression("PM"[2.5]*" Emissions for Baltimore City by Source Type 1999-2008"))
+
+# Save the file to plot3.png
+ggsave(file = "plot3.png")

@@ -22,4 +22,5 @@ barplot(
 		main="PM2.5 emission from all US sources between 1999-2008"
 )
 
+# Close graphic device
 dev.off()

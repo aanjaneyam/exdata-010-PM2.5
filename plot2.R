@@ -25,4 +25,5 @@ barplot(
 		main="PM2.5 emission from all Baltimore city sources"
 )
 
+# Close graphic device
 dev.off()
