@@ -15,6 +15,7 @@ baltimoreEmission <- aggregate(Emissions ~ year, baltimoreNEI,sum)
 # Create PNG graphic device
 png(filename = "plot2.png", width = 480, height = 480)
 
+# Plot the total PM2.5 Emissions from all Baltimore city sources using base plotting system
 barplot(
 		baltimoreEmission$Emissions,
 		names.arg=baltimoreEmission$year,
