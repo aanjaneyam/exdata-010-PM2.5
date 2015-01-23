@@ -1,7 +1,7 @@
 ###############################################################################
-# Before running this script please make sure that the required data file
-# "summarySCC_PM25.rds" is in your working directory. This script requires ggplot2
-# package.
+# Before running this script please make sure that the required data files
+# "summarySCC_PM25.rds" and "Source_Classification_Code.rds" are in your 
+# working directory. This script requires ggplot2 package.
 ###############################################################################
 library(ggplot2)
 
@@ -23,7 +23,7 @@ g + geom_bar(stat = "identity", fill="#FF9999", colour="black", width=0.75)+
 theme_bw()+
 guides(fill = FALSE)+
 labs(x = "Year", y = expression("Total PM"[2.5]*" Emission (Tons)")) + 
-labs(title = expression("PM"[2.5]*" Emissions from Coal Combustion Sources Across US from 1999-2008"))
+labs(title = expression("PM"[2.5]*" Emissions from Coal Combustion Sources Across US between 1999-2008"))
 
 # Save the file to plot4.png
 ggsave(file = "plot4.png")

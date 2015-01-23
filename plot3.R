@@ -11,7 +11,7 @@ NEI <- readRDS("summarySCC_PM25.rds")
 # subset emission data for Baltimore city.
 baltimoreNEI <- subset(NEI, fips == "24510")
 
-# Plot pm 2.5 emmission by source type in Baltimore city between 1999-2008 using ggplot2 system.
+# Plot PM2.5 emmission by source type in Baltimore city between 1999-2008 using ggplot2 system.
  
 g <- ggplot(aes(factor(year), Emissions, fill = type), data = baltimoreNEI)
 g + geom_bar(stat = "identity")+
