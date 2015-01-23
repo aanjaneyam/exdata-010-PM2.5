@@ -19,14 +19,14 @@ baltimoreVehicleNEI[, "city"] <- "Baltimore City"
 losangelesVehicleNEI[, "city"] <- "Los Angeles County"
 baltiLa <- rbind(baltimoreVehicleNEI, losangelesVehicleNEI)
 
-# Make plot for PM2.5 emissions from vehicle related sources in Baltimore and Los Angeles between 1999-2008 using ggplot2
+# Make plot for PM2.5 emissions from motor vehicle related sources in Baltimore and Los Angeles between 1999-2008 using ggplot2
 g <- ggplot(aes(factor(year), Emissions, fill = city), data = baltiLa)
 g + geom_bar(stat = "identity", aes(fill=year))+
 facet_grid(.~city)+
 theme_bw()+
 guides(fill = FALSE)+
 labs(x = "Year", y = expression("Total PM"[2.5]*" Emission (Tons)")) + 
-labs(title = expression("PM"[2.5]*" Motor Vehicle Source Emissions in Baltimore & LosAngeles, 1999-2008"))
+labs(title = expression("PM"[2.5]*" Motor Vehicle Sources Emission in Baltimore & Los Angeles between 1999-2008"))
 
 # Save the file to plot6.png
 ggsave(file = "plot6.png")
